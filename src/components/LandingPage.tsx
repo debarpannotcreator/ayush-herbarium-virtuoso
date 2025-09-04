@@ -51,7 +51,7 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-950 dark:via-green-950 dark:to-teal-950 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-surface dark:bg-gradient-hero relative overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
@@ -73,7 +73,7 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
             }}
           >
             <Leaf 
-              className="text-emerald-200/30 dark:text-emerald-700/30" 
+              className="text-primary/20 dark:text-primary-glow/20" 
               size={40 + (i * 10)} 
             />
           </motion.div>
@@ -92,94 +92,96 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="flex items-center justify-center mb-6">
               <motion.div
-                className="bg-gradient-to-r from-emerald-500 to-teal-500 p-4 rounded-2xl shadow-glow"
+                className="bg-gradient-primary p-6 rounded-3xl shadow-premium"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Leaf className="text-white" size={48} />
+                <Leaf className="text-primary-foreground" size={56} />
               </motion.div>
             </div>
-            <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700">
-              <Sparkles className="w-3 h-3 mr-1" />
+            <Badge variant="outline" className="text-primary border-primary/30 bg-primary-light/50 px-4 py-2">
+              <Sparkles className="w-4 h-4 mr-2" />
               AYUSH Digital Initiative
             </Badge>
           </motion.div>
 
           {/* Main Heading */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent leading-tight">
+          <motion.div variants={itemVariants} className="space-y-8">
+            <h1 className="font-display text-7xl md:text-9xl font-bold bg-gradient-hero bg-clip-text text-transparent leading-[0.9] tracking-tight">
               Virtual
-              <span className="block">Herbal Garden</span>
+              <span className="block italic">Herbal Garden</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore the ancient wisdom of traditional healing through interactive 3D models, 
-              comprehensive plant information, and immersive virtual experiences.
+            <p className="font-sans text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed font-light">
+              Discover the profound wisdom of <span className="font-semibold text-primary">AYUSH systems</span> through 
+              interactive 3D botanical models, comprehensive medicinal knowledge, 
+              and immersive virtual experiences that bridge ancient healing traditions with modern technology.
             </p>
           </motion.div>
 
           {/* Features Grid */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { icon: Search, title: "Interactive Search", desc: "Find plants by name, use, or system" },
-              { icon: BookOpen, title: "Detailed Learning", desc: "Comprehensive botanical information" },
-              { icon: Map, title: "Virtual Tours", desc: "Guided exploration experiences" }
+              { icon: Search, title: "Smart Discovery", desc: "AI-powered search across 500+ medicinal plants with advanced filtering by therapeutic properties" },
+              { icon: BookOpen, title: "Deep Learning", desc: "Comprehensive botanical knowledge with cultivation methods, traditional uses, and modern research" },
+              { icon: Map, title: "Immersive Tours", desc: "Curated virtual journeys through themed collections of healing plants and wellness systems" }
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-emerald-200 dark:border-emerald-800 rounded-xl p-6 text-center space-y-4"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.2 }}
+                className="bg-card/80 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 text-center space-y-6 shadow-soft hover:shadow-botanical transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -8 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-12 h-12 rounded-lg flex items-center justify-center mx-auto">
-                  <feature.icon className="text-white" size={24} />
+                <div className="bg-gradient-primary w-16 h-16 rounded-2xl flex items-center justify-center mx-auto shadow-glow">
+                  <feature.icon className="text-primary-foreground" size={28} />
                 </div>
-                <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.desc}</p>
+                <h3 className="font-display font-semibold text-xl text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Action Buttons */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button
                 size="lg"
                 onClick={onEnterGarden}
-                className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-glow text-lg px-8 py-6 h-auto group"
+                className="bg-gradient-primary hover:shadow-premium text-primary-foreground shadow-glow text-xl px-12 py-8 h-auto group font-semibold rounded-2xl border-0"
               >
                 Enter the Garden
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-all duration-300" />
               </Button>
               
               <Button
                 variant="outline"
                 size="lg"
                 onClick={() => setShowTips(!showTips)}
-                className="border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950 text-lg px-8 py-6 h-auto"
+                className="border-2 border-primary/30 bg-primary-light/30 text-primary hover:bg-primary-light/50 hover:border-primary/50 text-xl px-12 py-8 h-auto font-medium rounded-2xl backdrop-blur-sm"
               >
                 {showTips ? "Hide" : "Show"} Garden Tour
               </Button>
             </div>
 
             {/* Statistics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12">
               {[
-                { number: "500+", label: "Medicinal Plants" },
-                { number: "5", label: "AYUSH Systems" },
-                { number: "3D", label: "Interactive Models" },
-                { number: "∞", label: "Learning Opportunities" }
+                { number: "500+", label: "Medicinal Plants", desc: "Comprehensive database" },
+                { number: "5", label: "AYUSH Systems", desc: "Traditional healing methods" },
+                { number: "3D", label: "Interactive Models", desc: "Immersive experiences" },
+                { number: "∞", label: "Learning Paths", desc: "Endless discovery" }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1 + (index * 0.1), duration: 0.5 }}
+                  className="text-center bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-primary/10"
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 1.2 + (index * 0.15), duration: 0.6 }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-400">
+                  <div className="font-display text-4xl md:text-5xl font-bold text-primary mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="font-semibold text-foreground text-lg mb-1">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.desc}</div>
                 </motion.div>
               ))}
             </div>
@@ -207,12 +209,14 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
                     exit={{ scale: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="bg-white dark:bg-gray-900 border border-emerald-200 dark:border-emerald-700 rounded-lg p-4 shadow-lg max-w-xs">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <tip.icon className="text-emerald-600 dark:text-emerald-400" size={16} />
-                        <span className="text-sm font-medium text-foreground">Tip {index + 1}</span>
+                    <div className="bg-card/95 backdrop-blur-xl border border-primary/20 rounded-2xl p-6 shadow-premium max-w-sm">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="bg-gradient-primary p-2 rounded-lg">
+                          <tip.icon className="text-primary-foreground" size={18} />
+                        </div>
+                        <span className="font-display font-semibold text-primary">Discovery Tip {index + 1}</span>
                       </div>
-                      <p className="text-sm text-muted-foreground">{tip.text}</p>
+                      <p className="text-foreground/80 leading-relaxed">{tip.text}</p>
                     </div>
                   </motion.div>
                 )}
