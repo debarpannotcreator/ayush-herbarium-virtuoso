@@ -17,6 +17,8 @@ import peppermintImage from "@/assets/peppermint-plant.jpg";
 import giloyImage from "@/assets/giloy-plant.jpg";
 import amlaImage from "@/assets/amla-plant.jpg";
 import sandalwoodImage from "@/assets/sandalwood-plant.jpg";
+import muletiImage from "@/assets/mulethi-plant.jpg";
+import ginsengImage from "@/assets/ginseng-plant.jpg";
 
 const samplePlants: Plant[] = [
   {
@@ -128,6 +130,28 @@ const samplePlants: Plant[] = [
     region: "Southern India",
     description: "Sacred tree prized for its fragrant heartwood. Used in traditional medicine, cosmetics, and spiritual practices. The oil has cooling and calming properties.",
     cultivationMethod: "Slow-growing parasitic tree that requires host plants. Grows in well-drained soil in tropical regions with high humidity."
+  },
+  {
+    id: "11",
+    name: "Mulethi (Licorice)",
+    botanicalName: "Glycyrrhiza glabra",
+    image: muletiImage,
+    uses: ["Respiratory Health", "Digestive Support", "Anti-inflammatory", "Throat Soothing"],
+    system: "Ayurveda",
+    region: "Mediterranean & Asia",
+    description: "Sweet-tasting root widely used in traditional medicine for respiratory and digestive issues. Contains glycyrrhizin, which provides its distinctive sweetness and therapeutic properties.",
+    cultivationMethod: "Perennial herb that grows in sandy, well-drained soil. Requires deep soil for root development and moderate watering."
+  },
+  {
+    id: "12",
+    name: "Ginseng",
+    botanicalName: "Panax ginseng",
+    image: ginsengImage,
+    uses: ["Energy Enhancement", "Cognitive Support", "Immune Booster", "Stress Adaptation"],
+    system: "Unani",
+    region: "East Asia",
+    description: "Prized adaptogenic root known for enhancing vitality and mental clarity. Contains ginsenosides, powerful compounds that support overall wellness and longevity.",
+    cultivationMethod: "Slow-growing plant that requires shaded forest conditions. Takes 4-6 years to mature and needs well-drained, humus-rich soil."
   }
 ];
 

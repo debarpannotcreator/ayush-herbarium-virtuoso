@@ -1,20 +1,15 @@
 import { useState } from "react";
-import { Navigation } from "@/components/Navigation";
-import { HeroSection } from "@/components/HeroSection";
-import { PlantGallery } from "@/components/PlantGallery";
-import { VirtualTours } from "@/components/VirtualTours";
+import { LandingPage } from "@/components/LandingPage";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
-  return (
-    <div className="min-h-screen bg-background">
-      <Navigation onSearch={setSearchQuery} searchQuery={searchQuery} />
-      <HeroSection />
-      <PlantGallery searchQuery={searchQuery} />
-      <VirtualTours />
-    </div>
-  );
+  const handleEnterGarden = () => {
+    navigate("/garden");
+  };
+
+  return <LandingPage onEnterGarden={handleEnterGarden} />;
 };
 
 export default Index;
