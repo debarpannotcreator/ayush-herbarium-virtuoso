@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Menu, X, Leaf, BookOpen, Users, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ModeToggle } from "@/components/ModeToggle";
 
 interface NavigationProps {
   onSearch: (query: string) => void;
@@ -39,7 +40,7 @@ export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
             </Button>
           </div>
 
-          {/* Search Bar */}
+          {/* Search Bar & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -51,17 +52,20 @@ export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
                 className="pl-10 w-64 bg-background/50"
               />
             </div>
+            <ModeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
+          {/* Mobile Menu Button & Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ModeToggle />
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
