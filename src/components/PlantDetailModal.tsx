@@ -32,7 +32,7 @@ export const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalPro
             <DialogTitle className="text-2xl font-bold text-foreground">
               {plant.name}
             </DialogTitle>
-            <Button variant="outline" size="sm" className="hover:bg-primary hover:text-primary-foreground">
+            <Button variant="default" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
               <Box className="w-4 h-4 mr-2" />
               View 3D
             </Button>
