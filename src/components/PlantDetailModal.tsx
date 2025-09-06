@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plant } from "./PlantCard";
-import { MapPin, Leaf, Heart, BookOpen, Share2, Download } from "lucide-react";
+import { MapPin, Leaf, Heart, BookOpen, Share2, Download, Box } from "lucide-react";
 
 interface PlantDetailModalProps {
   plant: Plant;
@@ -28,9 +28,15 @@ export const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalPro
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-foreground">
-            {plant.name}
-          </DialogTitle>
+          <div className="flex items-center justify-between">
+            <DialogTitle className="text-2xl font-bold text-foreground">
+              {plant.name}
+            </DialogTitle>
+            <Button variant="outline" size="sm" className="hover:bg-primary hover:text-primary-foreground">
+              <Box className="w-4 h-4 mr-2" />
+              View 3D
+            </Button>
+          </div>
         </DialogHeader>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
