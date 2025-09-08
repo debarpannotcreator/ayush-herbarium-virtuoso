@@ -3,6 +3,7 @@ import { Search, Menu, X, Leaf, BookOpen, Users, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ModeToggle";
+import { PDFViewerModal } from "@/components/PDFViewerModal";
 
 interface NavigationProps {
   onSearch: (query: string) => void;
@@ -11,6 +12,7 @@ interface NavigationProps {
 
 export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPDFOpen, setIsPDFOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -34,7 +36,11 @@ export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
               <Users className="w-4 h-4 mr-2" />
               Virtual Tours
             </Button>
-            <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => setIsPDFOpen(true)}
+            >
               <Info className="w-4 h-4 mr-2" />
               About AYUSH
             </Button>
@@ -91,7 +97,11 @@ export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
                   <Users className="w-4 h-4 mr-2" />
                   Virtual Tours
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-start"
+                  onClick={() => setIsPDFOpen(true)}
+                >
                   <Info className="w-4 h-4 mr-2" />
                   About AYUSH
                 </Button>
@@ -100,6 +110,13 @@ export const Navigation = ({ onSearch, searchQuery }: NavigationProps) => {
           </div>
         )}
       </div>
+      
+      {/* PDF Viewer Modal */}
+      <PDFViewerModal
+        isOpen={isPDFOpen}
+        onClose={() => setIsPDFOpen(false)}
+        pdfUrl="https://pub-cd74c6e7d0ba4183b0c2616e506282f2.r2.dev/doc.pdf"
+      />
     </nav>
   );
 };
