@@ -142,7 +142,7 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
 
             {/* Main Headline */}
             <motion.h1 
-              className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 dark:from-emerald-400 dark:via-green-400 dark:to-teal-400 bg-clip-text text-transparent leading-none tracking-tight"
+              className="font-display text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 dark:from-emerald-400 dark:via-green-400 dark:to-teal-400 bg-clip-text text-transparent leading-[0.9] tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, delay: 0.3 }}
@@ -152,12 +152,12 @@ export const LandingPage = ({ onEnterGarden }: LandingPageProps) => {
 
             {/* Subheading */}
             <motion.p 
-              className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 max-w-5xl mx-auto leading-relaxed font-light"
+              className="font-sans text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed font-light tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, delay: 0.6 }}
             >
-              Discover the profound wisdom of <span className="font-semibold text-emerald-600 dark:text-emerald-400">AYUSH systems</span> through 
+              Discover the profound wisdom of <span className="font-display font-semibold text-primary italic">AYUSH systems</span> through 
               interactive 3D botanical models, medicinal knowledge, and immersive virtual experiences.
             </motion.p>
 
