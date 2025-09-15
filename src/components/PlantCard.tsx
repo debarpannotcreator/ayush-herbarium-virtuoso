@@ -19,9 +19,10 @@ export interface Plant {
 interface PlantCardProps {
   plant: Plant;
   onView: (plant: Plant) => void;
+  onView3D?: (plant: Plant) => void;
 }
 
-export const PlantCard = ({ plant, onView }: PlantCardProps) => {
+export const PlantCard = ({ plant, onView, onView3D }: PlantCardProps) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
@@ -121,15 +122,28 @@ export const PlantCard = ({ plant, onView }: PlantCardProps) => {
       </CardContent>
 
       <CardFooter className="p-6 pt-0 flex justify-between items-center">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => onView(plant)}
-          className="hover:bg-primary hover:text-primary-foreground transition-colors"
-        >
-          <Eye className="w-4 h-4 mr-2" />
-          View Details
-        </Button>
+        <div className="flex space-x-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onView(plant)}
+            className="hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            <Eye className="w-4 h-4 mr-2" />
+            View Details
+          </Button>
+          
+          {onView3D && (
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => onView3D(plant)}
+              className="bg-primary hover:bg-primary/90 transition-colors"
+            >
+              View 3D
+            </Button>
+          )}
+        </div>
         
         <Button
           variant="ghost"

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { PlantCard, Plant } from "./PlantCard";
 import { PlantDetailModal } from "./PlantDetailModal";
 import { Button } from "@/components/ui/button";
@@ -160,6 +161,7 @@ interface PlantGalleryProps {
 }
 
 export const PlantGallery = ({ searchQuery }: PlantGalleryProps) => {
+  const navigate = useNavigate();
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
   const [filterSystem, setFilterSystem] = useState<string>("all");
   const [filterUse, setFilterUse] = useState<string>("all");
@@ -283,6 +285,7 @@ export const PlantGallery = ({ searchQuery }: PlantGalleryProps) => {
               key={plant.id}
               plant={plant}
               onView={setSelectedPlant}
+              onView3D={(plant) => navigate(`/plant/${plant.id}`)}
             />
           ))}
         </div>
